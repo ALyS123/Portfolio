@@ -1,0 +1,19 @@
+.divider {
+  border: 0;
+  height: 3px;
+  display: block;
+
+  /* match your blue accent palette (Header/Name) */
+  background: linear-gradient(90deg, #1e3a8a, #2563eb, #38bdf8, #2563eb, #1e3a8a);
+  border-radius: 2px;
+  opacity: 0.9;
+
+  /* full-bleed across the viewport */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;     /* escape the centered container */
+  right: 50%;
+  margin-right: -50vw;    /* keep it centered */
+  margin-top: 1rem;       /* spacing above */
+}

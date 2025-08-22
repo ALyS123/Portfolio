@@ -1,0 +1,197 @@
+/* src/components/Header/Header.module.css */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 23px 0;  /* a bit taller */
+  z-index: 100;
+
+  /* animated shining gradient */
+  background: linear-gradient(
+    270deg,
+    #0f172a,
+    #1e3a8a,
+    #2563eb,
+    #38bdf8,
+    #1e3a8a,
+    #0f172a
+  );
+  background-size: 600% 600%;
+  animation: shine 12s linear infinite;
+
+  /* Makes the header blurry when scrolling down */
+  pointer-events: auto;
+
+  will-change: opacity, filter, padding, transform, background-position;
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease,
+    padding 0.3s ease,
+    transform 0.4s ease,
+    background-position 0.2s linear;
+  opacity: var(--opacity, 1);
+  filter: blur(var(--blur, 0));
+  /* parallax: move gradient as you scroll */
+  background-position: calc(var(--scrollY, 0) * -0.5px) 50%;
+}
+
+.scrolled {
+  padding: 14px 0;
+  transform: translateY(-2px);
+
+  pointer-events: none;
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(-4px);
+  pointer-events: none; /* not clickable when hidden */
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.inner {
+  max-width: 1200px;   /* give more breathing room */
+  margin: 0 auto;
+  padding: 0 60px;     /* pushes name + links further inside */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  font-size: 1.6rem;   /* slightly bigger */
+  font-weight: 700;
+  color: #f8fafc;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
+  margin-left: 16px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 28px; /* more spacing between nav and icons */
+}
+
+.nav a {
+  margin: 0 10px;
+  color: #f0f9ff;
+  text-decoration: none;
+  font-size: 1rem;     /* bigger */
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #38bdf8;
+}
+
+.socials a {
+  margin-left: 14px;
+  color: #f8fafc;
+  font-size: 1.1rem;   /* icons a bit bigger */
+  transition: color 0.3s ease;
+}
+
+.socials a:hover {
+  color: #38bdf8;
+}
+
+/* inline with icons */
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Glassy neon chip button (no visible border, no cyan flood on hover) */
+.resumeBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 999px;
+  text-decoration: none;
+
+  color: #eaf6ff;                         /* readable on dark header */
+  background: rgba(255, 255, 255, 0.06);  /* subtle glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(148, 163, 184, 0.20), /* faint inner ring */
+    0 6px 18px rgba(56, 189, 248, 0.18);       /* soft outer glow */
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Animated glow ring (no hard border) */
+.resumeBtn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    rgba(56, 189, 248, 0.65),
+    rgba(99, 102, 241, 0.65),
+    rgba(56, 189, 248, 0.65)
+  );
+  filter: blur(10px);
+  opacity: 0;                    /* hidden until hover */
+  z-index: -1;                   /* glow around, not over text */
+  transition: opacity 0.25s ease;
+}
+
+/* Sheen sweep */
+.resumeBtn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: skewX(-20deg);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+
+.resumeBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow:
+    inset 0 0 0 1px rgba(148, 163, 184, 0.28),
+    0 10px 28px rgba(56, 189, 248, 0.28);
+}
+
+.resumeBtn:hover::before {
+  opacity: 1;
+  animation: spin 4s linear infinite;
+}
+
+.resumeBtn:hover::after {
+  transform: translateX(260%) skewX(-20deg); /* sheen slides L→R */
+}
+
+.resumeBtn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.55),
+    0 0 0 4px rgba(56,189,248,0.65);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

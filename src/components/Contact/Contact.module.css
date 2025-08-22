@@ -1,0 +1,176 @@
+/* Section shell to match your layout */
+.section {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 60px 80px;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: #0b1220;
+}
+
+.sub {
+  color: #475569;
+  margin-top: 6px;
+}
+
+/* Glassy contact card */
+.wrap {
+  position: relative;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.94), #ffffff);
+  box-shadow:
+    0 14px 34px rgba(2,6,23,.08),
+    inset 0 0 0 1px rgba(15,23,42,.06);
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Accent strip at top (same palette family) */
+.accent {
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px 4px 0 0;
+}
+.accentBlue {
+  background: linear-gradient(90deg, #1e3a8a, #2563eb, #38bdf8, #2563eb, #1e3a8a);
+}
+
+/* Soft inner glow */
+.aura {
+  position: absolute;
+  inset: -25% -10% auto -10%;
+  height: 75%;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 40% at 70% 30%, rgba(56,189,248,.18), transparent 60%),
+    radial-gradient(35% 35% at 30% 70%, rgba(37,99,235,.14), transparent 60%);
+  filter: blur(22px);
+  z-index: 0;
+}
+
+/* Rows of links (glass chips) */
+.rows {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 20px 0;
+}
+
+.row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+
+  color: #0b1220;
+  text-decoration: none;
+
+  background: rgba(56,189,248,.10);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(56, 189, 248, .55),
+    0 8px 20px rgba(2, 6, 23, .06);
+
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.row:hover {
+  transform: translateY(-1px);
+  background: rgba(56,189,248,.16);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(56, 189, 248, .65),
+    0 12px 28px rgba(2, 6, 23, .10);
+}
+
+/* Actions (same CTA system as Projects) */
+.actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.ctaBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: .2px;
+
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  will-change: transform, box-shadow, background, color;
+}
+
+/* Primary gradient button */
+.primary {
+  color: #f8fafc;
+  background: linear-gradient(90deg, #1e3a8a, #2563eb, #38bdf8, #2563eb, #1e3a8a);
+  background-size: 300% 100%;
+  box-shadow:
+    0 10px 24px rgba(37, 99, 235, .25),
+    inset 0 0 0 1px rgba(255,255,255,.06);
+}
+.primary:hover {
+  transform: translateY(-1px);
+  background-position: 100% 0;
+  box-shadow:
+    0 14px 36px rgba(37, 99, 235, .35),
+    inset 0 0 0 1px rgba(255,255,255,.1);
+}
+
+/* Secondary glass chip button */
+.secondary {
+  color: #0b1220;
+  background: rgba(56,189,248,.10);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(56, 189, 248, .55),
+    0 8px 20px rgba(2, 6, 23, .06);
+}
+.secondary:hover {
+  transform: translateY(-1px);
+  background: rgba(56,189,248,.16);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(56, 189, 248, .65),
+    0 12px 28px rgba(2, 6, 23, .10);
+}
+
+/* Focus ring */
+.ctaBtn:focus-visible, .row:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.65),
+    0 0 0 4px rgba(56,189,248,.65);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .section { padding: 24px 20px 60px; }
+  .rows { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .primary { background-position: 0 0 !important; }
+  .ctaBtn, .row { transition: none; }
+}

@@ -1,0 +1,180 @@
+.hero {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - 84px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); /* prevents overflow wrap */
+  gap: 40px;
+  align-items: center;
+  padding: 40px 60px;
+}
+
+.left { max-width: 680px; }
+
+.kicker {
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  background: linear-gradient(90deg, #0b1220, #2563eb, #38bdf8, #0b1220);
+  background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: titleSlide 10s linear infinite;
+  text-shadow: 0 0 18px rgba(56,189,248,0.14);
+}
+
+.tagline {
+  margin-top: 12px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #334155;
+  max-width: 56ch;
+}
+
+.blurb {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* spacing between paragraphs inside .blurb */
+.blurb p + p {
+  margin-top: 0.6rem;
+}
+
+.cta {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+}
+
+.primary, .secondary {
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 999px;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+
+.primary {
+  background: rgba(56,189,248,0.12);
+  color: #0b1220;
+  box-shadow: inset 0 0 0 1.5px rgba(56,189,248,.55);
+}
+.primary:hover { transform: translateY(-1px); background: rgba(56,189,248,.18); }
+
+.secondary {
+  background: rgba(15,23,42,0.9);
+  color: #e6f1ff;
+  box-shadow: 0 10px 24px rgba(2,6,23,.2);
+}
+.secondary:hover { transform: translateY(-1px); background: rgba(15,23,42,0.95); }
+
+/* Right visual */
+.right {
+  position: relative;
+  display: flex;
+  justify-content: center; /* center image in its column */
+  align-items: center;
+  perspective: 800px;      /* for optional tilt later */
+}
+
+/* soft aura behind image (visual only) */
+.right::before {
+  content: "";
+  position: absolute;
+  inset: -8% -6% -12% -6%;
+  background:
+    radial-gradient(40% 40% at 70% 30%, rgba(56,189,248,.25), transparent 60%),
+    radial-gradient(35% 35% at 30% 70%, rgba(37,99,235,.20), transparent 60%);
+  filter: blur(24px);
+  z-index: -1;
+}
+
+/* clamp image size so it never gets huge */
+.heroImg {
+  width: clamp(280px, 34vw, 420px);
+  height: auto;
+  border-radius: 16px;
+  box-shadow:
+    0 20px 60px rgba(2,6,23,.25),
+    0 0 80px rgba(56,189,248,.25);
+  transform-style: preserve-3d;
+  transition: transform .2s ease;
+  animation: float 6s ease-in-out infinite; /* remove if you want static */
+}
+
+/* Tech badges */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.badges span {
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.2s ease-in-out;
+}
+
+.badges span:hover {
+  background-color: #e0e7ff;
+  border-color: #6366f1;
+  color: #111827;
+  transform: translateY(-2px);
+}
+
+/* Quick facts */
+.facts {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #374151;
+}
+
+/* we use emojis in JSX; no extra icon here */
+.facts li { display: flex; align-items: center; gap: 0.5rem; }
+
+/* Animations */
+@keyframes titleSlide { to { background-position: 300% 0; } }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Mobile & reduced motion */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 24px 20px;
+    min-height: auto;
+  }
+  .right { order: -1; }         /* image above text on mobile */
+  .heroImg { width: min(460px, 88vw); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title { animation: none; }
+  .heroImg { animation: none; transition: none; }
+}
