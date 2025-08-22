@@ -7,6 +7,7 @@
   width: 100%;
   padding: 23px 0;  /* a bit taller */
   z-index: 100;
+  padding-top: max(23px, env(safe-area-inset-top));
 
   /* animated shining gradient */
   background: linear-gradient(
@@ -41,7 +42,22 @@
   padding: 14px 0;
   transform: translateY(-2px);
 
-  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .scrolled { pointer-events: none; }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 20px;   /* narrower padding so content doesn’t clip */
+    flex-wrap: wrap;   /* allow wrap instead of cutting */
+    row-gap: 8px;
+  }
+  .right {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
 }
 
 .hidden {
