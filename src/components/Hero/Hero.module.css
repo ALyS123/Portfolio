@@ -1,3 +1,5 @@
+/* src/components/Hero/Hero.module.css */
+
 .hero {
   position: relative;
   max-width: 1200px;
@@ -152,7 +154,6 @@
   color: #374151;
 }
 
-/* we use emojis in JSX; no extra icon here */
 .facts li { display: flex; align-items: center; gap: 0.5rem; }
 
 /* Animations */
