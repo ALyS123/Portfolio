@@ -64,7 +64,7 @@ src/
 - npm or yarn
 
 ### Install & Run
-
+```bash
 # Clone this repository
 git clone https://github.com/AL
 
