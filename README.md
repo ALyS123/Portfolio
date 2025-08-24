@@ -26,11 +26,12 @@ Live site: [ali-elsabbouri.com](https://ali-elsabbouri.com)
 ---
 
 ## 📂 Project Structure
+```text
 src/
- ├── assets/                    # Static assets (images, icons, etc.)
+ ├── assets/                  # Static assets (images, icons, etc.)
  │   └── hero.png
- │   
- ├── components/                # Reusable UI components
+ │
+ ├── components/              # Reusable UI components
  │   ├── Header/
  │   │   ├── Header.tsx
  │   │   └── Header.module.css
@@ -40,7 +41,7 @@ src/
  │   ├── Projects/
  │   │   ├── ProjectCard.tsx
  │   │   ├── Project.module.css
- |   |   └── Projects.tsx
+ │   │   └── Projects.tsx
  │   ├── Skills/
  │   │   ├── Skills.tsx
  │   │   └── Skills.module.css
@@ -49,9 +50,9 @@ src/
  │   │   └── Contact.module.css
  │   └── ...other components
  │
- ├── App.tsx                    
- ├── main.tsx                   
- ├── index.css                  
+ ├── App.tsx
+ ├── main.tsx
+ ├── index.css
  └── vite-env.d.ts
 
 ---
