@@ -60,6 +60,7 @@ src/
 ## ⚙️ Getting Started
 
 ### Prerequisites
+```bash
 - Node.js (v18 or later recommended)
 - npm or yarn
 
@@ -71,11 +72,12 @@ git clone https://github.com/AL
 ## ⚙️ Getting Started
 
 ### Prerequisites
+```bash
 - Node.js (v18 or later recommended)
 - npm or yarn
 
 ### Installation
-
+```bash
 # Clone this repository
 git clone https://github.com/ALyS123/Portfolio.git
 
@@ -86,13 +88,13 @@ cd Portfolio
 npm install
 
 ### Development
-
+```bash
 # Start the development server
 npm run dev
 Now open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### Production Build
-
+```bash
 # Create an optimized production build
 npm run build
 
