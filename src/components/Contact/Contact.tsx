@@ -43,12 +43,20 @@ export default function Contact() {
         </div>
 
         <div className={styles.actions}>
+          
           <a href="mailto:ali_sabbouri@hotmail.com" className={`${styles.ctaBtn} ${styles.primary}`}>
             Let’s Work Together
           </a>
-          <a href="/resume.pdf" download className={`${styles.ctaBtn} ${styles.secondary}`}>
-            Download Resume
+
+          <a
+            href="/Ali-Elsabbouri-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.ctaBtn} ${styles.secondary}`}
+          >
+            Preview Resume
           </a>
+
         </div>
       </div>
     </section>

@@ -76,7 +76,12 @@ function Header() {
             <a href="mailto:ali_sabbouri@hotmail.com">
               <Mail size={20} />
             </a>
-            <a href="/resume.pdf" download className={styles.resumeBtn}>
+            <a
+              href="/Ali-Elsabbouri-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.resumeBtn}
+            >
               <FileDown size={16} />
               Resume
             </a>
