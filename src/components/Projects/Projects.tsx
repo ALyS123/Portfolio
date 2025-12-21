@@ -3,14 +3,24 @@ import ProjectCard, { Project } from "./ProjectCard";
 
 const projects: Project[] = [
   {
+  title: "Smooth Investment",
+  kicker: "Full-stack web app",
+  description:
+    "Investment analysis platform with a React + TypeScript frontend and a Python backend connected to a Postgres database. Deployed with a modern cloud setup for production-ready hosting.",
+  stack: ["React", "TypeScript", "Tailwind CSS", "Python", "PostgreSQL", "Vercel", "Render", "Neon (AWS)", "API", "Yfinance", "RNN-LSTM"],
+  projlink: "https://smooth-investment.vercel.app/", // Link to the deployed project
+  image: "/assets/smooth-investment.png",            // Path of the image
+  imageFit: "contain",
+  },
+  {
     title: "Chess Game",
     kicker: "Python • OOP",
     description:
       "Object-oriented chess with move validation, castling, check detection, and auto-promotion. Modular structure with groundwork for online multiplayer.",
     stack: ["Python", "Pygame", "socket", "threading", "OOP"],
     repo: "https://github.com/ALyS123/Chess",
-    image: "/assets/chess.png",     // Files path in public/assets
-    imageFit: "contain",            // or "contain" not cropped, cover is the default
+    image: "/assets/chess.png",
+    imageFit: "contain",
   },
   {
     title: "CareerCracker",

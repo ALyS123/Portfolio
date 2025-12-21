@@ -6,6 +6,7 @@ export type Project = {
   description: string;
   stack: string[];
   repo?: string;
+  projlink?: string;
   demo?: string;
   image?: string;                 // public path or imported asset
   imageFit?: "cover" | "contain"; // how the image should fit (default cover)
@@ -19,6 +20,7 @@ export default function ProjectCard({
   description,
   stack,
   repo,
+  projlink,
   demo,
   image,
   imageFit = "cover",
@@ -56,6 +58,11 @@ export default function ProjectCard({
           {repo && (
             <a href={repo} target="_blank" rel="noopener noreferrer">
               GitHub
+            </a>
+          )}
+          {projlink && (
+            <a href={projlink} target="_blank" rel="noopener noreferrer">
+              Website Link
             </a>
           )}
           {demo && (

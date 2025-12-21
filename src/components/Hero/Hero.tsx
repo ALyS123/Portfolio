@@ -9,7 +9,7 @@ export default function Hero() {
         <h1 className={styles.title}>Ali Elsabbouri</h1>
 
         <div className={styles.blurb}>
-          <p>Computer Science student passionate about bridging hardware and software.</p>
+          <p>Computer Science graduate passionate about bridging hardware and software.</p>
           <p>From embedded systems and automation to full-stack apps, I solve problems end-to-end.</p>
           <p>I focus on building reliable, efficient, and user-friendly solutions that feel seamless.</p>
         </div>
